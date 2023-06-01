@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Identity;
+@using flyplaza.Areas.Identity.Data;
+@using flyplaza.Domain;
+@inject UserManager<flyplazaUser> UserManager
+@model AllTableReservation
+
+@{
+    ViewData["Title"] = "Забронировать";
+}
+<link href="~/css/Indexcshtml.css" rel="stylesheet" />
+<div class="table_layout">
+    <img class="image passe_partout" src="~/img/table_layout.jpg" />
+    <a href="#window1" class="btn1" id="btn1" onclick="openbox('win1')"></a>
+    <a href="#window2" class="btn1" id="btn2" onclick="openbox('win1')"></a>
+    <a href="#window3" class="btn1" id="btn3" onclick="openbox('win1')"></a>
+    <a href="#window4" class="btn1" id="btn4" onclick="openbox('win1')"></a>
+    <a href="#window5" class="btn1" id="btn5" onclick="openbox('win1')"></a>
+    <a href="#window6" class="btn1" id="btn6" onclick="openbox('win1')"></a>
+    <a href="#window7" class="btn1" id="btn7" onclick="openbox('win1')"></a>
+    <a href="#window8" class="btn1" id="btn8" onclick="openbox('win1')"></a>
+    <a href="#window9" class="btn1" id="btn9" onclick="openbox('win1')"></a>
+    <a href="#window10" class="btn1" id="btn10" onclick="openbox('win1')"></a>
+    @if (User.IsInRole("User"))
+    {
+        <div id="win1" class="user-form-container" style="display: none">
+            <div id="win1header"><button class="close-button" onclick="closebutton()">×</button></div>
+            <form class="user-form" method="post" asp-controller="Home" asp-action="AddReservation">
+                <label asp-for="TableNumber"></label>
+                <input asp-for="TableNumber" id="tablenumber" type="number" /><br>
+                <span asp-validation-for="TableNumber" class="valid"></span>
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" type="text" value="@UserManager.GetUserAsync(User).Result.FirstName" />
+                <span asp-validation-for="FirstName" class="valid"></span>
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" type="text" value="@UserManager.GetUserAsync(User).Result.LastName" />
+                <span asp-validation-for="LastName" class="valid"></span>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" type="email" value="@UserManager.GetUserAsync(User).Result.Email" />
+                <span asp-validation-for="Email" class="valid"></span>
+                @if (UserManager.GetUserAsync(User).Result.PhoneNumber == null)
+                {
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" id="phone" type="tel" placeholder="+7(000)000-00-00" />
+                }
+                else
+                {
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" id="phone" placeholder="+7(000)000-00-00" type="tel" value="@UserManager.GetUserAsync(User).Result.PhoneNumber" />
+                }
+                <label asp-for="Reservation"></label>
+                <input asp-for="Reservation" /><br>
+                <span asp-validation-for="Reservation" class="valid"></span>
+                <label asp-for="Note"></label>
+                <input asp-for="Note" /><br><br><br>
+                <button type="submit" class="submit-btn">Забронировать</button>
+            </form>
+        </div>
+    }
+    else if (User.IsInRole("Administrator"))
+    {
+        <div id="win1" class="user-form-container" style="display: none">
+            <div id="win1header"><button class="close-button" onclick="closebutton()">×</button></div>
+            Админы не бронируют
+        </div>
+    }
+    else
+    {
+        <div id="win1" class="user-form-container" style="display: none">
+            <div id="win1header"><button class="close-button" onclick="closebutton()">×</button></div>
+            Сперва нужно войти в профиль!
+        </div>
+    }
+
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/js/imask.js"></script>
+<script src="~/js/Main.js"></script>

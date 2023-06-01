@@ -1,0 +1,180 @@
+﻿
+body {
+    background-color: GhostWhite;
+}
+.table_layout {
+    position: relative;
+}
+
+.table_layout .image {
+    width: 100%;
+    max-height: 100%;
+    padding: 2px; /* Ширина паспарту */
+    background: #D1DBDC; /* Цвет фона  паспарту */
+    border: 3px solid #666; /* Параметры рамки */
+}
+
+.table_layout .btn1:hover {
+    background-color: rgb(20,255,99, 0.5);
+}
+.btn1 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background: transparent;
+    /*background-color: gray;*/
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 10%;
+    height: 9%;
+}
+#btn1 {   
+    top: 50%;
+    left: 82%;
+}
+#btn2 {
+    top: 67%;
+    left: 82%;
+}
+#btn3 {
+    top: 57%;
+    left: 72.3%;
+}
+#btn4 {
+    top: 40.3%;
+    left: 72.6%;
+}
+#btn5 {
+    top: 41%;
+    left: 52.3%;
+}
+#btn6 {
+    top: 41%;
+    left: 41.5%;
+}
+#btn7 {
+    top: 35.3%;
+    left: 23.2%;
+}
+#btn8 {
+    top: 21.4%;
+    left: 23.2%;
+}
+#btn9 {
+    top: 21.4%;
+    left: 13.5%;
+}
+#btn10 {
+    top: 35.3%;
+    left: 13.5%;
+}
+
+#win1 {
+    position: absolute;
+    width: auto;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    border-radius: 10%;
+}
+#win1header {
+    border-radius: 1%;
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+}
+
+
+.close-button {
+    border: none;
+    background: none;
+    color: #666; /* цвет крестика */
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.close-button:hover {
+    color: red; /* цвет крестика при наведении */
+}
+
+.close-button:focus {
+    outline: none; /* убираем рамку при фокусировке */
+}
+
+
+.user-form-container {
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1%;
+    left: 10%;
+}
+
+.user-form {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    padding: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #3E8E41;
+}
+
+
+/*.valid {
+    color: red;
+}*/

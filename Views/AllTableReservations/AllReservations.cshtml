@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Текущие бронирования";
+}
+@model ICollection<flyplaza.Domain.AllTableReservation>
+<link href="~/css/MyReservationscshtml.css" rel="stylesheet" />
+
+<h2>Текущие бронирования</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Номер столика</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Номер телефона</th>
+            <th scope="col">Бронирование</th>
+            <th scope="col">Заметка</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var table in Model)
+        {
+            <tr>
+                <td>@table.TableNumber</td>
+                <td>@table.FirstName</td>
+                <td>@table.LastName</td>
+                <td>@table.Email</td>
+                <td>@table.PhoneNumber</td>
+                <td>@table.Reservation</td>
+                <td>@table.Note</td>
+                <td>
+                    <form method="post" asp-controller="Home" asp-action="DeleteReservation">
+                        <input type="hidden" value="@table.Id" name="id" />
+                        <input type="submit" value="Удалить" />
+                    </form>
+                </td>          
+            </tr>
+        }
+    </tbody>
+</table>
