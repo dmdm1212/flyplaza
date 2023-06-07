@@ -61,7 +61,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"); // IndexHome при готовности
+    pattern: "{controller=Home}/{action=IndexHome}/{id?}"); // IndexHome при готовности
 
 app.MapRazorPages();
 
